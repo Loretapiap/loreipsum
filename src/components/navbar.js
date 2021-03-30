@@ -36,7 +36,7 @@ export default function Navbar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                   href="#pablo"
                 >
-                  Boutique
+                  Sofás y Bergeres
                 </a>
               </li>
               <li className="nav-item">
@@ -44,7 +44,7 @@ export default function Navbar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                   href="#pablo"
                 >
-                  Accesorios
+                  Mesas de centro
                 </a>
               </li>
               <li className="nav-item">
@@ -52,7 +52,7 @@ export default function Navbar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                   href="#pablo"
                 >
-                 Ofertas
+                 Deco hogar
                 </a>
               </li>
             </ul>
