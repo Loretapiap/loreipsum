@@ -26,7 +26,7 @@ export default function Carousel() {
               className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
               style={{
                 backgroundImage:
-                  'url("https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80")',
+                  'url("https://images.pexels.com/photos/6707628/pexels-photo-6707628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
               }}
             >
               <div className="container mx-auto">
@@ -69,10 +69,10 @@ export default function Carousel() {
             style={{ height: "50vh" }}
           >
             <div
-              className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
+              className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom"
               style={{
                 backgroundImage:
-                  'url("https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ&auto=format&fit=crop&w=1600&q=80")',
+                  'url("https://images.pexels.com/photos/5155218/pexels-photo-5155218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
               }}
             >
               <div className="container mx-auto">
@@ -115,10 +115,10 @@ export default function Carousel() {
             style={{ height: "50vh" }}
           >
             <div
-              className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom"
+              className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-center"
               style={{
                 backgroundImage:
-                  'url("https://images.unsplash.com/photo-1519327232521-1ea2c736d34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80")',
+                  'url("https://images.pexels.com/photos/6692960/pexels-photo-6692960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
               }}
             >
               <div className="container mx-auto">

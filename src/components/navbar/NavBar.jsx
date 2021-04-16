@@ -1,7 +1,7 @@
 import React from "react";
-import Brand from "../assets/logo.png";
-import Cart from "../components/cart";
-import "../assets/navcss.css";
+import Brand from "./logo.png"
+import Cart from "./CartWidget";
+import "./navcss.css";
 
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -12,7 +12,7 @@ export default function Navbar({ fixed }) {
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
               className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase "
-              href="#pablo"
+              href="#home"
             >
               <img src={Brand} className="logo" alt="logo loreipsum" />
             </a>
@@ -26,8 +26,8 @@ export default function Navbar({ fixed }) {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center" +
-              (navbarOpen ? " flex" : " hidden")
+              "lg:flex flex-grow items-center " +
+              (navbarOpen ? "flex" : "hidden")
             }
             id="example-navbar-danger"
           >
@@ -35,7 +35,7 @@ export default function Navbar({ fixed }) {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
-                  href="#pablo"
+                  href="#sofas"
                 >
                   Sofás y Bergeres
                 </a>
@@ -43,7 +43,7 @@ export default function Navbar({ fixed }) {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
-                  href="#pablo"
+                  href="#mesas"
                 >
                   Mesas de centro
                 </a>
@@ -51,7 +51,7 @@ export default function Navbar({ fixed }) {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
-                  href="#pablo"
+                  href="#deco"
                 >
                   Deco hogar
                 </a>
