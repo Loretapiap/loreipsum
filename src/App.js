@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <ItemListContainer greeting={'Cambio de color con un click :)'}/>
+      <ItemListContainer greeting={'Cambio de color con un click :)'} color={'white'}/>
       <Footer/>
       {/* <ButtonFc text={'es un prop'} color={'red'} /> */}
     </div>
