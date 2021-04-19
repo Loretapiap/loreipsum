@@ -43,13 +43,13 @@ const ItemListContainer = () => {
       ];
       setTimeout(() => {
         resolve(products);
-        setisLoading(false);
       }, 2000);
     });
 
     task.then(
       (res) => {
         setItems(res);
+        setisLoading(false);
       },
       (reject) => {
         console.log("Un error a ocurrido :(");
