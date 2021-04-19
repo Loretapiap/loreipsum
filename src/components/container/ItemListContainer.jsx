@@ -55,7 +55,7 @@ const ItemListContainer = () => {
         console.log("Un error a ocurrido :(");
       }
     );
-  });
+  }, []);
   if(isLoading == true) {
     return (
       <>

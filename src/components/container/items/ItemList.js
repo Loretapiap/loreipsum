@@ -1,9 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
-const ItemList = ({ products}) => {
-  
-console.log(products);
+const ItemList = ({ products }) => {
   return (
     <>
       <section className="bg-white py-8">
@@ -14,8 +12,7 @@ console.log(products);
         </div>
       </section>
     </>
-  )
-  
+  );
 };
 
 export default ItemList;
