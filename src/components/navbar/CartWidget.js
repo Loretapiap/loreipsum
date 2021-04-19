@@ -39,7 +39,7 @@ const Dropdown = ({ color }) => {
               }}
             >
               <svg
-                class="fill-current hover:text-black"
+                className="fill-current hover:text-black"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -59,32 +59,32 @@ const Dropdown = ({ color }) => {
               }
               style={{ minWidth: "12rem" }}
             >
-              <div class="cart-container">
-                <div class="shopping-cart">
-                  <ul class="shopping-cart-items">
-                    <li class="clearfix">
+              <div className="cart-container">
+                <div className="shopping-cart">
+                  <ul className="shopping-cart-items">
+                    <li className="clearfix">
                       <img src="https://placekitten.com/g/70" alt="item1" />
-                      <span class="item-name">Producto</span>
-                      <span class="item-price">$1990</span>
-                      <span class="item-quantity">Cantidad: 01</span>
+                      <span className="item-name">Producto</span>
+                      <span className="item-price">$1990</span>
+                      <span className="item-quantity">Cantidad: 01</span>
                     </li>
 
-                    <li class="clearfix">
+                    <li className="clearfix">
                       <img src="https://placekitten.com/g/70" alt="item1" />
-                      <span class="item-name">Producto</span>
-                      <span class="item-price">$1990</span>
-                      <span class="item-quantity">Cantidad: 01</span>
+                      <span className="item-name">Producto</span>
+                      <span className="item-price">$1990</span>
+                      <span className="item-quantity">Cantidad: 01</span>
                     </li>
 
-                    <li class="clearfix">
+                    <li className="clearfix">
                       <img src="https://placekitten.com/g/70" alt="item1" />
-                      <span class="item-name">Producto</span>
-                      <span class="item-price">$1990</span>
-                      <span class="item-quantity">Cantidad: 01</span>
+                      <span className="item-name">Producto</span>
+                      <span className="item-price">$1990</span>
+                      <span className="item-quantity">Cantidad: 01</span>
                     </li>
                   </ul>
 
-                  <a href="#" class="button">
+                  <a href="#" className="button">
                     Checkout
                   </a>
                 </div>

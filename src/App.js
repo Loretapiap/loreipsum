@@ -1,4 +1,5 @@
 import Navbar from "./components/navbar/NavBar";
+import Carousel from "./components/carousel";
 import ItemListContainer from "./components/container/ItemListContainer";
 import Footer from "./components/footer";
 // import ButtonFc from "./components/BaseComponent";
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
+      <Carousel/>
       <ItemListContainer greeting={'Cambio de color con un click :)'} color={'white'}/>
       <Footer/>
       {/* <ButtonFc text={'es un prop'} color={'red'} /> */}

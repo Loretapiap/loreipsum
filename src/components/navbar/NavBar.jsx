@@ -57,7 +57,7 @@ export default function Navbar({ fixed }) {
                 </a>
               </li>
             </ul>
-            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+            <div className="order-2 md:order-3 flex items-center" id="nav-content">
               <Cart/>             
             </div>
           </div>
