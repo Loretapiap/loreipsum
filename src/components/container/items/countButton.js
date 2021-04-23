@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const CountButton = ({ added, max }) => {
   const [count, setCount] = useState(0);
   const [isAdded, setisAdded] = useState(added);
-  if (!isAdded) {
+  if (!isAdded || count == 0) {
     return (
       <>
         <button

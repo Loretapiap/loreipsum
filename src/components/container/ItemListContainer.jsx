@@ -13,7 +13,7 @@ const ItemListContainer = () => {
           title: "Sitial Kas",
           description: "Sitial gris de tela y madera nativa",
           price: "$29000",
-          stock: 10,
+          stock: 3,
           pictureUrl:
             "https://sodimac.scene7.com/is/image/SodimacCL/8711852?fmt=jpg&fit=fit,1&wid=420&hei=420",
         },
@@ -22,7 +22,7 @@ const ItemListContainer = () => {
           title: "Máquina de escribir",
           description: "Réplica de máquina de escribir vintage",
           price: "$70000",
-          stock: 0,
+          stock: 10,
           pictureUrl:
             "https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80",
         },
@@ -39,6 +39,8 @@ const ItemListContainer = () => {
           title: "Tabla Selknam",
           description: "Tabla de vidrio inspirada en el pueblo Selk'nam",
           price: "$11990",
+          like: true,
+          stock: 0,
           pictureUrl:
             "https://cdn.shopify.com/s/files/1/1883/3113/products/TABLA-SELKNAM-1_2000x.jpg?v=1618271104",
         },

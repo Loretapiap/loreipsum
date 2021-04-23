@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import CountButton from "./countButton";
+import LikeButton from "./LikeButton";
 
 import "./item.css";
 
 const Item = ({ info }) => {
   const [isCount, setisCount] = useState(false);
-
+  
   return (
     <>
       <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
@@ -23,8 +24,8 @@ const Item = ({ info }) => {
                 {info.description ? info.description : "Sin descripción"}
               </p>
             </div>
+            <LikeButton like={info.like} />
 
-            <i className="far fa-heart"></i>
           </div>
           <div className="pt-3 flex items-baseline justify-between">
             <p className="pt-1 text-gray-900">
