@@ -1,4 +1,6 @@
 import Navbar from "./components/navbar/NavBar";
+import Cart from './components/cart/Cart';
+import CartContext from './context/CartContext';
 import Carousel from "./components/carousel";
 import ItemListContainer from "./components/container/ItemListContainer";
 import ItemDetailContainer from "./components/container/items/detail/itemDetailContainer";
@@ -10,10 +12,12 @@ import "./App.css";
 
 function App() {
   return (
+    <CartContext>
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route path="/cart" component={Cart} />
           <Route path="/category/:slug">
             <ItemListContainer />
           </Route>
@@ -36,6 +40,7 @@ function App() {
         {/* <ButtonFc text={'es un prop'} color={'red'} /> */}
       </BrowserRouter>
     </div>
+    </CartContext>
   );
 }
 

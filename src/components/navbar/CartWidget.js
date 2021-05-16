@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 import { createPopper } from "@popperjs/core";
 import "./cart.css";
 
@@ -21,15 +23,14 @@ const Dropdown = ({ color }) => {
   color === "white"
     ? (bgColor = "bg-blueGray-700")
     : (bgColor = "bg-" + color + "-500");
+  const { cart, removeItem } = useCartContext();
   return (
     <>
       <div className="flex flex-wrap">
         <div className="w-full sm:w-6/12 md:w-4/12 px-4">
           <div className="relative inline-flex align-middle w-full">
             <button
-              className={
-                "no-outline" + bgColor
-              }
+              className={"no-outline" + bgColor}
               type="button"
               ref={btnDropdownRef}
               onClick={() => {
@@ -61,32 +62,64 @@ const Dropdown = ({ color }) => {
             >
               <div className="cart-container">
                 <div className="shopping-cart">
-                  <ul className="shopping-cart-items">
-                    <li className="clearfix">
-                      <img src="https://placekitten.com/g/70" alt="item1" />
-                      <span className="item-name">Producto</span>
-                      <span className="item-price">$1990</span>
-                      <span className="item-quantity">Cantidad: 01</span>
-                    </li>
+                  {cart.length > 0 && (
+                    <>
+                      <ul className="shopping-cart-items">
+                        {cart.map((cartItem) => {
+                          return (
+                            <li
+                              className="clearfix flex items-start"
+                              key={cartItem.id}
+                            >
+                              <Link to={`/product/${cartItem.id}`}>
+                                <img
+                                  alt="loreipsum product"
+                                  className="product-cart"
+                                  src={cartItem.pictureUrl}
+                                />
+                              </Link>
+                              <div className="flex-grow">
+                                <Link
+                                  className="item-name"
+                                  to={`/product/${cartItem.id}`}
+                                >
+                                  {cartItem.title}
+                                </Link>
+                                <span className="item-price">
+                                  ${cartItem.price}
+                                </span>
+                                <span className="item-quantity">
+                                  Cantidad: {cartItem.qty}
+                                </span>
+                              </div>
+                              <div
+                                onClick={() => {
+                                  removeItem(cartItem.id);
+                                }}
+                                className="font-bold text-red-500"
+                              >
+                                <i className="fa fa-times"></i>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
 
-                    <li className="clearfix">
-                      <img src="https://placekitten.com/g/70" alt="item1" />
-                      <span className="item-name">Producto</span>
-                      <span className="item-price">$1990</span>
-                      <span className="item-quantity">Cantidad: 01</span>
-                    </li>
-
-                    <li className="clearfix">
-                      <img src="https://placekitten.com/g/70" alt="item1" />
-                      <span className="item-name">Producto</span>
-                      <span className="item-price">$1990</span>
-                      <span className="item-quantity">Cantidad: 01</span>
-                    </li>
-                  </ul>
-
-                  <a href="#" className="button">
-                    Checkout
-                  </a>
+                      <Link to={"/cart"} className="button">
+                        Checkout
+                      </Link>
+                    </>
+                  )}
+                  {cart.length === 0 && (
+                    <>
+                      <p className="text-gray-500 text-center">
+                        Sin items en el carro
+                      </p>
+                      <Link to={"/"} className="button">
+                        Explorar
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

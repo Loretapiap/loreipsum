@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../assets/carousel.css";
 
 export default function Carousel() {
@@ -34,12 +35,12 @@ export default function Carousel() {
                   <p className="text-black text-2xl my-4">
                     Just Home collection
                   </p>
-                  <a
+                  <Link
                     className="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-                    href="#"
+                    to={`/category/deco-hogar`}
                   >
                     VER PRODUCTOS
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -80,12 +81,12 @@ export default function Carousel() {
                   <p className="text-black text-2xl my-4">
                     Especial Home office
                   </p>
-                  <a
+                  <Link
                     className="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-                    href="#"
+                    to={`/category/deco-hogar`}
                   >
                     VER PRODUCTOS
-                  </a>
+                  </Link>                  
                 </div>
               </div>
             </div>
@@ -126,12 +127,12 @@ export default function Carousel() {
                   <p className="text-black text-2xl my-4">
                     Vuelta a clases
                   </p>
-                  <a
+                  <Link
                     className="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-                    href="#"
+                    to={`/category/mesas-de-centro`}
                   >
                     VER TODO ESCRITORIOS
-                  </a>
+                  </Link>                
                 </div>
               </div>
             </div>

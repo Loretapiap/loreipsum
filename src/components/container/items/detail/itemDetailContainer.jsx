@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import ItemDetail from "./itemDetail";
 
 const ItemDetailContainer = () => {
-  const { id } = useParams();
   const [item, setitem] = useState({});
   const [isLoading, setisLoading] = useState(true);
 
@@ -13,7 +11,7 @@ const ItemDetailContainer = () => {
         id: "41323124",
         title: "Sitial Kas",
         description: "Sitial gris de tela y madera nativa",
-        price: "$29000",
+        price: "29000",
         category: "sofas-y-bergeres",
         stock: 3,
         pictureUrl:
@@ -27,7 +25,6 @@ const ItemDetailContainer = () => {
     task.then(
       (res) => {
         setitem(res);
-        console.log(res);
         setisLoading(false);
       },
       (reject) => {
@@ -35,7 +32,7 @@ const ItemDetailContainer = () => {
       }
     );
   }, []);
-  if (isLoading == true) {
+  if (isLoading === true) {
     return (
       <>
         <div className="my-40 flex flex-col items-center justify-center">
@@ -45,7 +42,7 @@ const ItemDetailContainer = () => {
     );
   } else {
     return (
-     <ItemDetail item={item}/>
+     <ItemDetail item={item} setitem={setitem} />
     );
   }
 };

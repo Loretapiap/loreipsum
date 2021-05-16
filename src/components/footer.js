@@ -22,16 +22,16 @@ export default function Footer() {
               </p>
             </div>
             <span className="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
-              <a className="text-gray-500">
+              <a href="https://facebook.com" className="text-gray-500">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a className="ml-3 text-gray-500">
+              <a href="https://twitter.com" className="ml-3 text-gray-500">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a className="ml-3 text-gray-500">
+              <a href="https://instagram.com" className="ml-3 text-gray-500">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a className="ml-3 text-gray-500">
+              <a href="https://linkedin.com" className="ml-3 text-gray-500">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </span>
