@@ -75,8 +75,11 @@ const Cart = () => {
                 );
               })}
               <div className="d-flex justify-content-center mt-3">
-                <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase" onClick={clearCart}>
-                <i className="far fa-trash-alt"></i> Vaciar carro
+                <button
+                  className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase"
+                  onClick={clearCart}
+                >
+                  <i className="far fa-trash-alt"></i> Vaciar carro
                 </button>
               </div>
             </>
@@ -107,16 +110,30 @@ const Cart = () => {
             <span className="font-semibold text-sm">${cart.totalItems} </span>
           </div>
           <div>
-              <label className="font-medium inline-block mb-3 text-sm uppercase">Despacho</label>
-              <select className="block p-2 text-gray-600 w-full text-sm">
-                <option>Despacho gratis</option>
-              </select>
-            </div>
-            <div className="py-10">
-              <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Código promocional</label>
-              <input type="text" id="promo" placeholder="Ingresa tu código xxxx" className="p-2 text-sm w-full" />
-            </div>
-            <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Aplicar</button>
+            <label className="font-medium inline-block mb-3 text-sm uppercase">
+              Despacho
+            </label>
+            <select className="block p-2 text-gray-600 w-full text-sm">
+              <option>Despacho gratis</option>
+            </select>
+          </div>
+          <div className="py-10">
+            <label
+              htmlFor="promo"
+              className="font-semibold inline-block mb-3 text-sm uppercase"
+            >
+              Código promocional
+            </label>
+            <input
+              type="text"
+              id="promo"
+              placeholder="Ingresa tu código xxxx"
+              className="p-2 text-sm w-full"
+            />
+          </div>
+          <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">
+            Aplicar
+          </button>
 
           <div className="border-t mt-8">
             <div className="flex font-semibold justify-between py-6 text-sm uppercase">

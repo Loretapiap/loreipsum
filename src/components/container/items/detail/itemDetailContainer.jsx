@@ -1,37 +1,40 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./itemDetail";
+import { getFirestore } from "../../../../Firebase";
 
 const ItemDetailContainer = () => {
+  const { id } = useParams();
   const [item, setitem] = useState({});
   const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
-    const task = new Promise((resolve, reject) => {
-      const product = {
-        id: "41323124",
-        title: "Sitial Kas",
-        description: "Sitial gris de tela y madera nativa",
-        price: "29000",
-        category: "sofas-y-bergeres",
-        stock: 3,
-        pictureUrl:
-          "https://sodimac.scene7.com/is/image/SodimacCL/8711852?fmt=jpg&fit=fit,1&wid=420&hei=420",
-      };
-      setTimeout(() => {
-        resolve(product);
-      }, 2000);
-    });
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+    const itemCollectionDetail = itemCollection.doc(id);
 
-    task.then(
-      (res) => {
-        setitem(res);
+    setisLoading(true);
+    itemCollectionDetail
+      .get()
+      .then((doc) => {
+        if (!doc.exists) {
+          setisLoading(false);
+          console.log(
+            "Este producto no existe :("
+          );
+        } else {
+          setitem({ id: doc.id, ...doc.data() });
+        }
+      })
+      .catch((error) => {
+        console.log(
+          "Ups! Parece que hubo un error. Intenta recargar la página"
+        );
+      })
+      .finally(() => {
         setisLoading(false);
-      },
-      (reject) => {
-        console.log("Un error a ocurrido :(");
-      }
-    );
-  }, []);
+      });
+  }, [id]);
   if (isLoading === true) {
     return (
       <>
@@ -41,9 +44,7 @@ const ItemDetailContainer = () => {
       </>
     );
   } else {
-    return (
-     <ItemDetail item={item} setitem={setitem} />
-    );
+    return <ItemDetail item={item} setitem={setitem} />;
   }
 };
 

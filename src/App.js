@@ -3,6 +3,7 @@ import Cart from './components/cart/Cart';
 import CartContext from './context/CartContext';
 import Carousel from "./components/carousel";
 import ItemListContainer from "./components/container/ItemListContainer";
+import Categories from "./pages/categories";
 import ItemDetailContainer from "./components/container/items/detail/itemDetailContainer";
 import Footer from "./components/footer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -19,7 +20,7 @@ function App() {
         <Switch>
           <Route path="/cart" component={Cart} />
           <Route path="/category/:slug">
-            <ItemListContainer />
+            <Categories />
           </Route>
           {/* product detail */}
           <Route path="/product/:id">

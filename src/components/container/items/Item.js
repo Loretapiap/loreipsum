@@ -6,6 +6,7 @@ import LikeButton from "./LikeButton";
 import { NavLink } from "react-router-dom";
 
 import "./item.css";
+import ItemList from "./ItemList";
 
 const Item = ({ item, setitem }) => {
 
@@ -34,7 +35,7 @@ const Item = ({ item, setitem }) => {
           <img
             className="hover:grow hover:shadow-lg"
             src={
-              item.pictureUrl ? item.pictureUrl : "https://picsum.photos/200"
+              item.image ? item.image : "https://picsum.photos/200"
             }
           />
           </NavLink>

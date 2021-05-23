@@ -114,3 +114,15 @@
   width: 70px;
   object-fit: contain;
 }
+
+.cart-label {
+  position:  relative;
+}
+.cart-label.hide .bg-red-500{
+  display: none;
+} 
+.cart-label .bg-red-500 {
+  position: absolute;
+  right: -30px;
+  top: -15px;
+}

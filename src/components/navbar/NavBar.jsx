@@ -1,43 +1,26 @@
 import React, { useState, useEffect } from "react";
-
 import Brand from "./logo.png";
 import Cart from "./CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import { getFirestore } from "../../Firebase";
 import "./navcss.css";
 
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    const task = new Promise((resolve, reject) => {
-      const categories = [
-        {
-          id: "1",
-          slug : "sofas-y-bergeres",
-          name : "Sofás y Bergeres"
-        },
-        {
-          id: "2",
-          slug : "mesas-de-centro",
-          name : "Mesas de centro"
-        },
-        {
-          id: "3",
-          slug : "deco-hogar",
-          name : "Deco hogar"
-        }
-      ];
-      resolve(categories);
-    });
+  const [categories, setCategories] = useState([]);
 
-    task.then(
-      (res) => {
-        setItems(res);
-      },
-      (reject) => {
-        console.log("No hay categorias creadas");
+  useEffect(() => {
+    const db = getFirestore();
+    const categoriesCollection = db.collection("categories");
+    categoriesCollection.get().then((querySnapshot) => {
+      if (querySnapshot.length === 0) {
+        console.log("No hay categorias");
+      } else {
+        setCategories(
+          querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
       }
-    );
+    });
   }, []);
   return (
     <>
@@ -67,14 +50,16 @@ export default function Navbar({ fixed }) {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            {items.map(category => (
-                 <li className="nav-item" key={category.id}>
-                 <NavLink to={`/category/${category.slug}`} className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75">
-                   {category.name}
-                 </NavLink>
-               </li>
+              {categories.map((category) => (
+                <li className="nav-item" key={category.id}>
+                  <NavLink
+                    to={`/category/${category.slug}`}
+                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
+                  >
+                    {category.name}
+                  </NavLink>
+                </li>
               ))}
-             
             </ul>
             <div
               className="order-2 md:order-3 flex items-center"

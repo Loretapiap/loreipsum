@@ -30,7 +30,11 @@ const Dropdown = ({ color }) => {
         <div className="w-full sm:w-6/12 md:w-4/12 px-4">
           <div className="relative inline-flex align-middle w-full">
             <button
-              className={"no-outline" + bgColor}
+              className={
+                "cart-label no-outline " +
+                bgColor +
+                (cart.length > 0 ? " show" : " hide")
+              }
               type="button"
               ref={btnDropdownRef}
               onClick={() => {
@@ -39,6 +43,10 @@ const Dropdown = ({ color }) => {
                   : openDropdownPopover();
               }}
             >
+              <span className="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3 text-white">
+                {cart.length > 0 &&
+                  cart.reduce((acc, item) => acc + item.qty, 0)}
+              </span>
               <svg
                 className="fill-current hover:text-black"
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +83,11 @@ const Dropdown = ({ color }) => {
                                 <img
                                   alt="loreipsum product"
                                   className="product-cart"
-                                  src={cartItem.pictureUrl}
+                                  src={
+                                    cartItem.image
+                                      ? cartItem.image
+                                      : "https://picsum.photos/200"
+                                  }
                                 />
                               </Link>
                               <div className="flex-grow">
