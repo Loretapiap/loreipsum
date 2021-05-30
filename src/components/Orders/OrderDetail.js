@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getFirestore } from "../../Firebase";
+import "./OrderDetail.css";
 
 const OrderDetail = () => {
   const { orderId } = useParams();
@@ -12,7 +13,7 @@ const OrderDetail = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    const ordersdivlection = db.divlection("orders");
+    const ordersdivlection = db.collection("orders");
     const orderDetail = ordersdivlection.doc(orderId);
     setLoading(true);
     orderDetail
@@ -43,104 +44,145 @@ const OrderDetail = () => {
     return new Intl.NumberFormat().format(numero);
   };
   return (
-    <div className="mt-4">
+    <div className="mt-4 order-detail">
       {loading ? (
         <span>cargando..</span>
       ) : error ? (
         <div>
           {" "}
           <Link to="/">
-            <span className="btn btn-secondary my-3">Atrás</span>
+            <span className="btn btn-secondary my-3">Volver al inicio</span>
           </Link>
           <div className="d-flex justify-content-center ">
             <p>{errorMessage}</p>
           </div>
         </div>
       ) : (
-        <div className="justify-content-center">
+        <div className="container mx-auto">
           {order && (
             <>
               {success && (
-                <div>
-                  <ul variant="shadow">
-                    <li className="px-2 ">
-                      <h3>Información de entrega</h3>
-                    </li>
-                    <li>
-                      <p>
-                        <strong> Nombre: </strong>
-                        {order.buyer.name}
-                      </p>
-                      <p>
-                        <strong> Teléfono: </strong>
-                        {order.buyer.phone}
-                      </p>
-                      <p>
-                        <strong> Dirección: </strong>
-                        {order.buyer.address}
-                      </p>
-                      <p className="text-center mt-4">
-                        {order.delivered ? (
-                          <span className="border border-success shadow-sm p-2 rounded-lg">
-                            Entregado
-                          </span>
-                        ) : (
-                          <span className="border border-danger shadow-sm p-2 rounded-lg">
-                            No entregado
-                          </span>
-                        )}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              )}
-              <div>
-                <ul variant="flush">
-                  <li>
-                    <h2>Orden: {orderId}</h2>
-                    <h5>
-                      Creada el: {order.date.toDate().toLocaleDateString()}
-                    </h5>
-                  </li>
-
-                  {order.items.map((item) => {
-                    return (
-                      <li key={item.product}>
-                        <div className="align-items-center text-center">
-                          <div>
-                            <img
-                              src={item.image}
-                              alt={item.title}
-                              fluid
-                              rounded
-                            />
-                          </div>
-                          <div>
-                            <strong>{item.title}</strong>
-                          </div>
-                          <div>
-                            {item.quantity} x {item.price} = $
-                            {formatNumber(item.quantity * item.price)}
-                          </div>
-                          <div>
-                            <Link to={`/item/${item.id}`}>
-                              <button className="btn btn-success">
-                                {" "}
-                                Volver a comprar
-                              </button>{" "}
-                            </Link>{" "}
+                <>
+                  <div className="bg-indigo-700 px-4 py-5 border-b rounded-t sm:px-6">
+                    <h3 className="text-lg leading-6 font-medium text-white">
+                      Información de entrega
+                    </h3>
+                  </div>
+                  <div className="bg-white shadow overflow-hidden sm:rounded-md">
+                    <ul className="divide-y divide-gray-200">
+                      <li>
+                        <div className="px-4 py-4 sm:px-6">
+                          <div className="flex items-center justify-between">
+                            <p>
+                              {" "}
+                              <strong> Nombre: </strong>{" "}
+                            </p>
+                            <div className="ml-2 flex-shrink-0 flex">
+                              <p> {order.buyer.name}</p>
+                            </div>
                           </div>
                         </div>
                       </li>
-                    );
-                  })}
-                  <li>
-                    <h3 className="text-center mt-3 ">
-                      TOTAL: ${formatNumber(order.total)}
-                    </h3>
-                  </li>
-                </ul>
-              </div>
+                      <li>
+                        <div className="px-4 py-4 sm:px-6">
+                          <div className="flex items-center justify-between">
+                            <p>
+                              <strong> Teléfono: </strong>{" "}
+                            </p>
+                            <div className="ml-2 flex-shrink-0 flex">
+                              <a href={"tel:" + order.buyer.phone}>
+                                {order.buyer.phone}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="px-4 py-4 sm:px-6">
+                          <div className="flex items-center justify-between">
+                            <p>
+                              <strong> Dirección: </strong>
+                            </p>
+                            <div className="ml-2 flex-shrink-0 flex">
+                              <p> {order.buyer.address}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="px-4 py-4 sm:px-6">
+                          <div className="flex items-center justify-between">
+                            <p>
+                              <strong> Estado: </strong>
+                            </p>
+                            <div className="ml-2 flex-shrink-0 flex">
+                              <p className="text-center mt-4">
+                                {order.delivered ? (
+                                  <span className="bg-green-500 text-white font-bold uppercase text-sm px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 mb-1">
+                                    Entregado
+                                  </span>
+                                ) : (
+                                  <span className="bg-blueGray-500 font-bold uppercase text-sm px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 mb-1">
+                                    No entregado
+                                  </span>
+                                )}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              )}
+              <>
+                <div className="bg-indigo-700 px-4 py-5 border-b rounded-t sm:px-6 mt-5 flex justify-between item-center">
+                  <h3 className="text-lg leading-6 font-medium text-white">
+                    Orden de compra
+                  </h3>
+                  <h3 class="text-white">
+                    Fecha de creación:{" "}
+                    {order.date.toDate().toLocaleDateString()}
+                  </h3>
+                </div>
+                <div className="bg-white shadow overflow-hidden sm:rounded-md">
+                  <ul className="divide-y divide-gray-200">
+                    {order.items.map((item) => {
+                      return (
+                        <li key={item.product}>
+                          <div className="px-4 py-4 sm:px-6">
+                            <div className="flex items-center justify-between">
+                              <div className="ml-2 flex">
+                                <img src={item.image} alt={item.title} />
+
+                                <div className="flex flex-col ml-4">
+                                  <h3 className="text-lg text-gray-500">{item.title}</h3>
+                                  <p className="text-sm text-gray-400">
+                                  {item.quantity} x {item.price} = $
+                                  {formatNumber(item.quantity * item.price)}
+                                  </p>
+                                </div>
+                              </div>
+                              <div>
+                                <Link to={`/product/${item.id}`}>
+                                  <button className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                    Volver a comprar
+                                  </button>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      );
+                    })}
+                    <li>
+                      <h3 className="text-right m-5">
+                        TOTAL: ${formatNumber(order.total)}
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+              </>
             </>
           )}
         </div>

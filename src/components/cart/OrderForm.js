@@ -44,12 +44,14 @@ const OrderForm = ({ cart }) => {
           title: item.title,
           price: item.price,
           quantity: item.qty,
-          image: item.pictureUrl,
+          image: item.image,
         })),
         date: firebase.firestore.FieldValue.serverTimestamp(),
-        total: cart.totalPrice,
+        total: cart.totalItems,
         delivered: false,
       };
+      console.log(newOrder);
+
       try {
         const doc = await ordersCollection.add(newOrder);
 
@@ -67,8 +69,9 @@ const OrderForm = ({ cart }) => {
           doc.ref.update({ stock: doc.data().stock - item.qty });
         });
 
-        history.push(`/order/${doc.id}/success`);
         clearCart();
+        history.push(`/order/${doc.id}/success`);
+        
       } catch (error) {
         console.log(error);
       }
