@@ -2,6 +2,7 @@ import Navbar from "./components/navbar/NavBar";
 import Cart from './components/cart/Cart';
 import CartContext from './context/CartContext';
 import Carousel from "./components/carousel";
+import OrderDetail from './components/Orders/OrderDetail';
 import ItemListContainer from "./components/container/ItemListContainer";
 import Categories from "./pages/categories";
 import ItemDetailContainer from "./components/container/items/detail/itemDetailContainer";
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route path="/order/:orderId/:success?" component={OrderDetail} />
           <Route path="/cart" component={Cart} />
           <Route path="/category/:slug">
             <Categories />
