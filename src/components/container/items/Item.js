@@ -14,12 +14,7 @@ const Item = ({ item, setitem }) => {
 
   const onAdd = (item, quantityToAdd, stock) => {
     setQty(quantityToAdd);
-    setitem((prevState) => {
-      return {
-        ...prevState,
-        stock: stock - quantityToAdd,
-      };
-    });
+
     addItem(item, quantityToAdd);
   };
   const formatPrice = (number) => {
