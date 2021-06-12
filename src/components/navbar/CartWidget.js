@@ -23,7 +23,11 @@ const Dropdown = ({ color }) => {
   color === "white"
     ? (bgColor = "bg-blueGray-700")
     : (bgColor = "bg-" + color + "-500");
-  const { cart, removeItem } = useCartContext();
+  const { cart, removeItem, clearCart } = useCartContext();
+  cart.totalItems = cart.reduce((acc, item) => acc + item.qty * item.price, 0);
+  const formatPrice = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
   return (
     <>
       <div className="flex flex-wrap">
@@ -90,7 +94,7 @@ const Dropdown = ({ color }) => {
                                   }
                                 />
                               </Link>
-                              <div className="flex-grow">
+                              <div className="flex-grow pl-2">
                                 <Link
                                   className="item-name"
                                   to={`/product/${cartItem.id}`}
@@ -100,7 +104,7 @@ const Dropdown = ({ color }) => {
                                 <span className="item-price">
                                   ${cartItem.price}
                                 </span>
-                                <span className="item-quantity">
+                                <span className="text-xs item-quantity">
                                   Cantidad: {cartItem.qty}
                                 </span>
                               </div>
@@ -108,7 +112,7 @@ const Dropdown = ({ color }) => {
                                 onClick={() => {
                                   removeItem(cartItem.id);
                                 }}
-                                className="font-bold text-red-500"
+                                className="font-bold text-red-500 mx-2"
                               >
                                 <i className="fa fa-times"></i>
                               </div>
@@ -116,10 +120,14 @@ const Dropdown = ({ color }) => {
                           );
                         })}
                       </ul>
+                      <div className="flex justify-between mt-4">
+                        <span>Total:</span> ${formatPrice(cart.totalItems)} 
+                      </div>
 
                       <Link to={"/cart"} className="button">
                         Checkout
                       </Link>
+                      <div className="text-center text-xs" onClick={clearCart}>Limpiar carro</div>
                     </>
                   )}
                   {cart.length === 0 && (

@@ -13,7 +13,7 @@ Proyecto de ecommerce en [React](https://es.reactjs.org/) + [Firebase](https://f
 
 ## Convenciones
 
-Se utilizó la librería [TailWind](https://tailwindcss.com/) para los estilos y grilla del sitio; ya que cuenta con varios componentes pre-hechos, tales como la barra de navegación, carrusel, entre otros. Que permitieron un ahorro en tiempo de desarrollo y mejorás en la version responsiva.
+Se utilizó la librería [TailWind](https://tailwindcss.com/) para los estilos y grilla del sitio; ya que cuenta con varios componentes pre-hechos, tales como la barra de navegación, carrusel, entre otros. Que permitieron un ahorro en tiempo de desarrollo y mejoras en la version responsiva.
 
 Tailwind requiere la instalación de [CRACO](https://www.npmjs.com/package/@craco/craco) como dependencia para funcionar, esto se debe a que Create React App no permite anular la configuración de PostCSS de forma nativa.
 

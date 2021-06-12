@@ -42,6 +42,8 @@
 }
 .shopping-cart .shopping-cart-items {
   padding-top: 20px;
+  max-height: 100px;
+  overflow-y: auto;
 }
 .shopping-cart .shopping-cart-items li {
   margin-bottom: 18px;
@@ -93,7 +95,7 @@
   display: block;
   border-radius: 3px;
   font-size: 16px;
-  margin: 25px 0 15px 0;
+  margin: 15px 0;
 }
 .button:hover {
   background: #729ef9;
