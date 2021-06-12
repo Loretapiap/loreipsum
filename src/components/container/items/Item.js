@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useCartContext } from "../../../context/CartContext";
 
 import CountButton from "./countButton";
-import LikeButton from "./LikeButton";
 import { NavLink } from "react-router-dom";
 
 import "./item.css";
@@ -38,7 +37,6 @@ const Item = ({ item, setitem }) => {
                 {item.description ? item.description : "Sin descripción"}
               </p>
             </NavLink>
-            <LikeButton like={item.like} />
           </div>
           <div className="pt-3 flex items-baseline justify-between">
             <p className="pt-1 text-gray-900">

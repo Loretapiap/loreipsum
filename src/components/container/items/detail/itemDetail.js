@@ -4,7 +4,6 @@ import { useCartContext } from "../../../../context/CartContext";
 
 import { useParams } from "react-router-dom";
 import CountButton from "../countButton";
-import LikeButton from "../LikeButton";
 
 const ItemDetail = ({ item, setitem }) => {
   const { id } = useParams();
@@ -80,9 +79,6 @@ const ItemDetail = ({ item, setitem }) => {
                   onAdd={onAdd}
                   item={item}
                 />
-                <div className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex item-center justify-center text-gray-500 ml-4">
-                  <LikeButton like={item.like} />
-                </div>
               </div>
               <div>
                 {qty > 0 && (
