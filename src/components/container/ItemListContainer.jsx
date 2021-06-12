@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import ItemList from "./items/ItemList";
 import { getFirestore } from "../../Firebase";
 
 const ItemListContainer = ({ category }) => {
-  const { slug } = useParams();
   const [items, setItems] = useState([]);
   const [isLoading, setisLoading] = useState([]);
 

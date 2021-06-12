@@ -9,7 +9,6 @@ import ItemDetailContainer from "./components/container/items/detail/itemDetailC
 import Footer from "./components/footer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-// import ButtonFc from "./components/BaseComponent";
 import "./App.css";
 
 function App() {

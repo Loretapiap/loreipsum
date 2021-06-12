@@ -49,7 +49,6 @@ const OrderDetail = () => {
         <span>cargando..</span>
       ) : error ? (
         <div>
-          {" "}
           <Link to="/">
             <span className="btn btn-secondary my-3">Volver al inicio</span>
           </Link>
@@ -63,6 +62,11 @@ const OrderDetail = () => {
             <>
               {success && (
                 <>
+                <div>
+                  <h1 className="text-lg my-4">
+                  Número de orden: <strong>{order.id}</strong>
+                  </h1>
+                </div>
                   <div className="bg-indigo-700 px-4 py-5 border-b rounded-t sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-white">
                       Información de entrega

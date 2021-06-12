@@ -6,7 +6,6 @@ import LikeButton from "./LikeButton";
 import { NavLink } from "react-router-dom";
 
 import "./item.css";
-import ItemList from "./ItemList";
 
 const Item = ({ item, setitem }) => {
   const [qty, setQty] = useState(0);
